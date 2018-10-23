@@ -1,9 +1,9 @@
 package e.brpl.exceptions.master;
 
-import e.brpl.exceptions.EBrplExceptions;
+import e.brpl.utils.exception.EBrplException;
 
 @SuppressWarnings("unused")
-public class DaerahPenangkapanException extends EBrplExceptions {
+public class DaerahPenangkapanException extends EBrplException {
 
     public DaerahPenangkapanException(String message) {
         super(message);
