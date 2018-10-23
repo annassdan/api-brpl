@@ -1,6 +1,7 @@
 package e.brpl.entities.master;
 
 
+import e.brpl.utils.EBrpl;
 import e.brpl.utils.entity.EBrplEntity;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Data
 @Builder
-@Table(name = "daerahpenangkapan")
+@Table(name = EBrpl.COMPONENT.MASTER.DAERAH_PENANGKAPAN)
 @SuppressWarnings("unused")
 public class DaerahPenangkapan extends EBrplEntity<DaerahPenangkapan, String> {
 

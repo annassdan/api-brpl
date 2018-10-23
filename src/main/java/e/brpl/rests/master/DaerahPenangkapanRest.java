@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SuppressWarnings("unused")
 @RestController
-@RequestMapping(value = "/api/master/daerahpenangkapan/",
+@RequestMapping(
+        value = EBrpl.PATH_PREFIX.MASTER + EBrpl.COMPONENT.MASTER.DAERAH_PENANGKAPAN,
         produces = { EBrpl.PRODUCES_MODE.JSON }
 )
 public class DaerahPenangkapanRest extends EBrplRest<DaerahPenangkapan, DaerahPenangkapanService> {
