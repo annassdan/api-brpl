@@ -1,4 +1,4 @@
-package e.brpl.eBRPL.System;
+package e.brpl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
