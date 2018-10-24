@@ -1,4 +1,4 @@
-package e.brpl.utils.repository;
+package e.brpl.app.utils.repository;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.NoRepositoryBean;

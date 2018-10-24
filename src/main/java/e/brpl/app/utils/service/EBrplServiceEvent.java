@@ -1,12 +1,13 @@
-package e.brpl.utils.service;
+package e.brpl.app.utils.service;
 
-import e.brpl.utils.entity.EBrplEntityEvent;
+import e.brpl.app.utils.entity.EBrplEntityEvent;
 import org.springframework.data.domain.Page;
 
+import java.io.Serializable;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public interface EBrplServiceEvent<Entity extends EBrplEntityEvent> {
+public interface EBrplServiceEvent<Entity extends EBrplEntityEvent, ID extends Serializable> {
 
 
     /**
@@ -42,7 +43,7 @@ public interface EBrplServiceEvent<Entity extends EBrplEntityEvent> {
      * @param uuid Primary Key dari Tabel yang ada dalam Database
      * @return Entity
      */
-    Entity findOne(String uuid);
+    Entity findOne(ID uuid);
 
 
     /**
@@ -51,7 +52,7 @@ public interface EBrplServiceEvent<Entity extends EBrplEntityEvent> {
      *
      * @param uuid Primary Key dari Tabel yang ada dalam Database
      */
-    boolean delete(String uuid);
+    boolean delete(ID uuid);
 
 
     /**

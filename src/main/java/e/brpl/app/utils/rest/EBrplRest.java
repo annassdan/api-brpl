@@ -1,8 +1,8 @@
-package e.brpl.utils.rest;
+package e.brpl.app.utils.rest;
 
-import e.brpl.utils.EBrpl;
-import e.brpl.utils.entity.EBrplEntityEvent;
-import e.brpl.utils.service.EBrplServiceEvent;
+import e.brpl.app.utils.EBrpl;
+import e.brpl.app.utils.entity.EBrplEntityEvent;
+import e.brpl.app.utils.service.EBrplServiceEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import javax.validation.Valid;
+import java.io.Serializable;
 
 
 /**
@@ -21,8 +22,8 @@ import javax.validation.Valid;
  * @param <Service>
  */
 @SuppressWarnings("unused")
-public class EBrplRest<Entity extends EBrplEntityEvent, Service extends EBrplServiceEvent>
-    implements EBrplRestEvent<Entity> {
+public class EBrplRest<Entity extends EBrplEntityEvent, Service extends EBrplServiceEvent, ID extends Serializable>
+    implements EBrplRestEvent<Entity, ID> {
 
     @Autowired
     @SuppressWarnings("")
@@ -41,7 +42,7 @@ public class EBrplRest<Entity extends EBrplEntityEvent, Service extends EBrplSer
     @Override
     @PutMapping("{" + EBrpl.PK_PATH_VARIABLE + "}")
     @SuppressWarnings("unchecked")
-    public ResponseEntity<Entity> edit(String uuid, @Valid Entity entity) {
+    public ResponseEntity<Entity> edit(ID uuid, @Valid Entity entity) {
 
         boolean finded = service.findOne(uuid) != null;
         if(finded) {
@@ -55,7 +56,7 @@ public class EBrplRest<Entity extends EBrplEntityEvent, Service extends EBrplSer
     @Override
     @GetMapping("{" + EBrpl.PK_PATH_VARIABLE + "}")
     @SuppressWarnings("unchecked")
-    public ResponseEntity<Entity> findOne(String uuid) {
+    public ResponseEntity<Entity> findOne(ID uuid) {
         Entity entity = (Entity) service.findOne(uuid);
 
         return new ResponseEntity<>(entity, HttpStatus.OK);
@@ -64,7 +65,7 @@ public class EBrplRest<Entity extends EBrplEntityEvent, Service extends EBrplSer
     @Override
     @DeleteMapping("{" + EBrpl.PK_PATH_VARIABLE + "}")
     @SuppressWarnings("unchecked")
-    public ResponseEntity<Entity> delete(String uuid) {
+    public ResponseEntity<Entity> delete(ID uuid) {
         Entity entity = (Entity) service.findOne(uuid);
         boolean deleted = service.delete(uuid);
         return new ResponseEntity<>(entity, (deleted) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);

@@ -1,4 +1,4 @@
-package e.brpl.utils.exception;
+package e.brpl.app.utils.exception;
 
 @SuppressWarnings("unused")
 public class EBrplRuntimeException extends RuntimeException {

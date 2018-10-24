@@ -1,18 +1,19 @@
-package e.brpl.utils.service;
+package e.brpl.app.utils.service;
 
-import e.brpl.utils.entity.EBrplEntityEvent;
-import e.brpl.utils.repository.EBrplRepository;
+import e.brpl.app.utils.entity.EBrplEntityEvent;
+import e.brpl.app.utils.repository.EBrplRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
 @SuppressWarnings("unused")
-public class EBrplService<Entity extends EBrplEntityEvent, Repository extends EBrplRepository>
-        implements EBrplServiceEvent<Entity> {
+public class EBrplService<Entity extends EBrplEntityEvent, Repository extends EBrplRepository, ID extends Serializable>
+        implements EBrplServiceEvent<Entity, ID> {
 
     @Autowired
 
@@ -68,7 +69,7 @@ public class EBrplService<Entity extends EBrplEntityEvent, Repository extends EB
      */
     @Override
     @SuppressWarnings("unchecked")
-    public Entity findOne(String uuid) {
+    public Entity findOne(ID uuid) {
         Optional<Entity> optional = repository.findById(uuid);
         if (optional.isPresent())
             return (Entity) repository.findById(uuid).get();
@@ -85,7 +86,7 @@ public class EBrplService<Entity extends EBrplEntityEvent, Repository extends EB
      */
     @Override
     @SuppressWarnings("unchecked")
-    public boolean delete(String uuid) {
+    public boolean delete(ID uuid) {
         try {
             repository.delete(uuid);
             return true;
