@@ -3,8 +3,10 @@ package e.brpl.entities.master;
 
 import e.brpl.utils.EBrpl;
 import e.brpl.utils.entity.EBrplEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
@@ -14,8 +16,10 @@ import javax.persistence.Table;
 @Entity
 @Data
 @Builder
+@AllArgsConstructor
 @Table(name = EBrpl.COMPONENT.MASTER.DAERAH_PENANGKAPAN)
 @SuppressWarnings("unused")
+@EqualsAndHashCode(callSuper = false)
 public class DaerahPenangkapan extends EBrplEntity<DaerahPenangkapan, String> {
 
     @Column(name = "kode_daerah_penangkapan")
