@@ -11,11 +11,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
-@Table(name = EBrpl.COMPONENT.MASTER.SUMBER_DAYA)
+@Table(name =
+        EBrpl.COMPONENT.MASTER_COMPONENT + EBrpl.DIVIDER +
+                EBrpl.COMPONENT.MASTER.SUMBER_DAYA)
 @SuppressWarnings("unused")
 @EqualsAndHashCode(callSuper = false)
 public class SumberDaya extends EBrplEntity<SumberDaya, String> {

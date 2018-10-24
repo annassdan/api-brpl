@@ -17,7 +17,9 @@ import javax.persistence.Table;
 @Data
 @Builder
 @AllArgsConstructor
-@Table(name = EBrpl.COMPONENT.MASTER.DAERAH_PENANGKAPAN)
+@Table(name =
+        EBrpl.COMPONENT.MASTER_COMPONENT + EBrpl.DIVIDER +
+        EBrpl.COMPONENT.MASTER.DAERAH_PENANGKAPAN)
 @SuppressWarnings("unused")
 @EqualsAndHashCode(callSuper = false)
 public class DaerahPenangkapan extends EBrplEntity<DaerahPenangkapan, String> {

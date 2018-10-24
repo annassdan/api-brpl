@@ -12,11 +12,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
-@Table(name = EBrpl.COMPONENT.MASTER.SPESIES)
+@Table(name =
+        EBrpl.COMPONENT.MASTER_COMPONENT + EBrpl.DIVIDER +
+                EBrpl.COMPONENT.MASTER.SPESIES)
 @SuppressWarnings("unused")
 @EqualsAndHashCode(callSuper = false)
 public class Spesies extends EBrplEntity<Spesies, String> {

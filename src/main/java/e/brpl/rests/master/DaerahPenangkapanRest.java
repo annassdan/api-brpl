@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SuppressWarnings("unused")
 @RestController
 @RequestMapping(
-        value = EBrpl.PATH_PREFIX.MASTER + EBrpl.COMPONENT.MASTER.DAERAH_PENANGKAPAN,
+        value = EBrpl.PATH_PREFIX.MASTER + EBrpl.COMPONENT.MASTER.DAERAH_PENANGKAPAN  + EBrpl.SLASH,
         produces = { EBrpl.PRODUCES_MODE.JSON }
 )
 public class DaerahPenangkapanRest extends EBrplRest<DaerahPenangkapan, DaerahPenangkapanService> {
