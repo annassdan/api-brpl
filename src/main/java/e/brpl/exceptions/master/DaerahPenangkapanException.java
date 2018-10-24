@@ -1,9 +1,12 @@
 package e.brpl.exceptions.master;
 
-import e.brpl.utils.exception.EBrplException;
+import e.brpl.utils.exception.EBrplRuntimeException;
 
 @SuppressWarnings("unused")
-public class DaerahPenangkapanException extends EBrplException {
+public class DaerahPenangkapanException extends EBrplRuntimeException {
+
+    public DaerahPenangkapanException() {
+    }
 
     public DaerahPenangkapanException(String message) {
         super(message);
@@ -15,5 +18,9 @@ public class DaerahPenangkapanException extends EBrplException {
 
     public DaerahPenangkapanException(Throwable cause) {
         super(cause);
+    }
+
+    public DaerahPenangkapanException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 }
