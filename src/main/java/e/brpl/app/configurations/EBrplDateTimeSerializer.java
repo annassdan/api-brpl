@@ -1,7 +1,7 @@
-package e.brpl.configurations;
+package e.brpl.app.configurations;
 
 import com.fasterxml.jackson.databind.JsonSerializer;
-import e.brpl.utils.EBrpl;
+import e.brpl.app.utils.EBrpl;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

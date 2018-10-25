@@ -31,24 +31,19 @@ public class EBrplIdGenerator implements IdentifierGenerator, Configurable {
         Serializable id = sessionImplementor.getEntityPersister(null, o)
                 .getClassMetadata().getIdentifier(o, sessionImplementor);  // read received id , if the id is attached on entity
 
-        if (id == null) {
-            if (className.equals("java.lang.String")) {
-                return UUID.randomUUID().toString();
-            } else if (className.equals("java.lang.Integer")) {
+        if (className.equals("java.lang.String")) {
+            return (id == null) ? UUID.randomUUID().toString() : ((id.toString().length() == 0) ? UUID.randomUUID().toString() : id.toString());
+        } else if (className.equals("java.lang.Integer")) {
+            return (id == null) ? Integer.parseInt(generateNonStringId()) : Integer.parseInt(id.toString());
+        } else if (className.equals("java.lang.Long")) {
+            return (id == null) ? Long.parseLong(generateNonStringId()) : Long.parseLong(id.toString());
+        } else {
+            try {
                 return Integer.parseInt(generateNonStringId());
-            } else { // Long
+            } catch (NumberFormatException e) {
                 return Long.parseLong(generateNonStringId());
             }
-        } else {
-            if (className.equals("java.lang.String")) {
-                return (id.toString().length() == 0) ? UUID.randomUUID().toString() : id.toString();
-            } else if (className.equals("java.lang.Integer")) {
-                return Integer.parseInt(id.toString());
-            } else { // Long
-                return Long.parseLong(id.toString());
-            }
         }
-//        return (id == null || id.toString().length() == 0) ? UUID.randomUUID().toString() : id.toString();
     }
 
 

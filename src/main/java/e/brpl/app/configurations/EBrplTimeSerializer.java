@@ -1,23 +1,21 @@
-package e.brpl.configurations;
+package e.brpl.app.configurations;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import e.brpl.utils.EBrpl;
+import e.brpl.app.utils.EBrpl;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
-
 @SuppressWarnings("unused")
-public class EBrplDateSerializer extends JsonSerializer<Date> {
+public class EBrplTimeSerializer extends JsonSerializer<Date> {
 
 
     @Override
     public void serialize(Date o, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-        SimpleDateFormat formatter = new SimpleDateFormat(EBrpl.DATE_PATTERN);
+        SimpleDateFormat formatter = new SimpleDateFormat(EBrpl.TIME_PATTERN);
         String formattedDate = formatter.format(o);
         jsonGenerator.writeString(formattedDate);
     }

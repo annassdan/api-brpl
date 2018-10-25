@@ -1,6 +1,6 @@
-package e.brpl.exceptions.master;
+package e.brpl.app.exceptions.master;
 
-import e.brpl.utils.exception.EBrplRuntimeException;
+import e.brpl.app.utils.exception.EBrplRuntimeException;
 
 @SuppressWarnings("unused")
 public class DaerahPenangkapanException extends EBrplRuntimeException {
