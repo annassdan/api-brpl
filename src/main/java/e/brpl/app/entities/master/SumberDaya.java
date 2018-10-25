@@ -7,6 +7,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -21,10 +22,11 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = false)
 public class SumberDaya extends EBrplEntity<SumberDaya, String> {
 
-    @Column(name = "nama_sumber_daya")
+    @NotNull
+    @Column(name = "nama_sumber_daya", length = 100)
     private String namaSumberDaya;
 
-    @Column(name = "deskripsi_sumber_daya")
+    @Column(name = "deskripsi_sumber_daya", columnDefinition = "TEXT")
     private String deskripsiSumberDaya;
 
 }

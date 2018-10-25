@@ -7,6 +7,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -20,13 +21,11 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = false)
 public class SpesifikasiAlatTangkap extends EBrplEntity<SpesifikasiAlatTangkap, String> {
 
+    @NotNull
     @Column(name = "spesifikasi")
     private String spesifikasi;
 
-    @Column(name = "nilai")
-    private String  nilai;
-
-    @Column(name = "unit")
+    @Column(name = "unit", length = 16)
     private String unit;
 
 }

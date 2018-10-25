@@ -9,6 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -22,10 +23,12 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = false)
 public class DaerahPenangkapan extends EBrplEntity<DaerahPenangkapan, String> {
 
-    @Column(name = "kode_daerah_penangkapan")
+    @NotNull
+    @Column(name = "kode_daerah_penangkapan", length = 64)
     private String kodeDaerahPenangkapan;
 
-    @Column(name = "nama_daerah_penangkapan")
+    @NotNull
+    @Column(name = "nama_daerah_penangkapan", length = 120)
     private String namaDaerahPenangkapan;
 
     @Column(name = "latitude")

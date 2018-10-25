@@ -3,8 +3,10 @@ package e.brpl.app.entities.master;
 import e.brpl.app.utils.EBrpl;
 import e.brpl.app.utils.entity.EBrplEntity;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -18,19 +20,22 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = false)
 public class Anggota extends EBrplEntity<Anggota, String> {
 
-    @Column(name = "nama_depan")
+    @NotNull
+    @Column(name = "nama_depan", length = 100)
     private String namaDepan;
 
-    @Column(name = "nama_belakang")
+    @Column(name = "nama_belakang", length = 50)
     private String namaBelakang;
 
-    @Column(name = "posisi")
+    @NotNull
+    @Column(name = "posisi", length = 64)
     private String posisi;
 
-    @Column(name = "email")
+    @NotNull
+    @Column(name = "email", length = 120)
     private String email;
 
-    @Column(name = "wpp")
+    @Column(name = "wpp", length = 8)
     private String wpp;
 
     @ManyToOne
