@@ -2,16 +2,16 @@ package e.brpl.app.entities.master;
 
 import e.brpl.app.utils.EBrpl;
 import e.brpl.app.utils.entity.EBrplEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name =
         EBrpl.COMPONENT.MASTER_COMPONENT + EBrpl.DIVIDER +
@@ -24,19 +24,14 @@ public class AlatTangkap extends EBrplEntity<AlatTangkap, String> {
     private String namaAlatTangkapID;
 
     @Column(name = "nama_alat_tangkap_en")
-    private String  namaAlatTangkapEN;
+    private String namaAlatTangkapEN;
 
     @Column(name = "deskripsi_alat_tangkap")
     private String deskripsiAlatTangkap;
 
-
-//    @Fetch(value = FetchMode.SELECT)
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-////    @JoinColumn(name = "uuid_alattangkap")
-//@Fetch(value = FetchMode.SELECT)
-//@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//@JoinColumn(name = "uuid_alattangkap")
-//    private List<SpesifikasiAlatTangkap> spesifikasiAlatTangkap = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "uuid_alattangkap", referencedColumnName = "uuid")
+    private List<SpesifikasiAlatTangkap> spesifikasiAlatTangkap = new ArrayList<>();
 
 
 }

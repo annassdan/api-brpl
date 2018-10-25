@@ -11,8 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -20,7 +19,7 @@ import javax.persistence.Table;
         EBrpl.COMPONENT.MASTER_COMPONENT + EBrpl.DIVIDER +
         EBrpl.COMPONENT.MASTER.DAERAH_PENANGKAPAN)
 @SuppressWarnings("unused")
-//@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = false)
 public class DaerahPenangkapan extends EBrplEntity<DaerahPenangkapan, String> {
 
     @Column(name = "kode_daerah_penangkapan")

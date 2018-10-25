@@ -2,10 +2,7 @@ package e.brpl.app.entities.master;
 
 import e.brpl.app.utils.EBrpl;
 import e.brpl.app.utils.entity.EBrplEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name =
         EBrpl.COMPONENT.MASTER_COMPONENT + EBrpl.DIVIDER +

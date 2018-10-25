@@ -5,10 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import e.brpl.app.utils.entity.EBrplEntity;
 import e.brpl.app.configurations.EBrplDateSerializer;
 import e.brpl.app.utils.EBrpl;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -18,6 +15,7 @@ import java.util.Date;
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name =
         EBrpl.COMPONENT.INTEGRATION_COMPONENT + EBrpl.DIVIDER +

@@ -7,8 +7,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -16,7 +15,7 @@ import javax.persistence.*;
         EBrpl.COMPONENT.MASTER_COMPONENT + EBrpl.DIVIDER +
                 EBrpl.COMPONENT.MASTER.ANGGOTA)
 @SuppressWarnings("unused")
-//@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = false)
 public class Anggota extends EBrplEntity<Anggota, String> {
 
     @Column(name = "nama_depan")
@@ -34,9 +33,9 @@ public class Anggota extends EBrplEntity<Anggota, String> {
     @Column(name = "wpp")
     private String wpp;
 
-//    @ManyToOne
-//    @JoinColumn(name = "uuid_sumberdaya", referencedColumnName = "uuid")
-//    private SumberDaya uuidSumberDaya;
+    @ManyToOne
+    @JoinColumn(name = "uuid_sumberdaya", referencedColumnName = "uuid")
+    private SumberDaya uuidSumberDaya;
 
     @Column(name = "foto")
     private String foto;
